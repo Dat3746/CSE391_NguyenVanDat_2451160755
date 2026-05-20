@@ -1,0 +1,49 @@
+import time
+
+# ===== ĐỒ THỊ CÓ HƯỚNG (đỉnh, chi phí) =====
+graph = {
+    'A': [('B', 68), ('C', 155)],
+    'B': [('I', 72)],
+    'I': [('C', 131), ('K', 120)],
+    'K': [('J', 45)],
+    'C': [('D', 99), ('H', 81)],
+    'D': [('E', 216)],
+    'H': [('F', 103)],
+    'F': [('G', 63)],
+    'E': [('G', 90)],
+    'J': [],
+    'G': []
+}
+
+best_cost = float('inf')
+best_path = []
+
+def branch_and_bound(start, goal):
+    global best_cost, best_path
+    start_time = time.time()
+
+    def dfs(u, path, cost):
+        global best_cost, best_path
+
+        # CẮT NHÁNH
+        if cost >= best_cost:
+            return
+
+        # ĐẾN ĐÍCH
+        if u == goal:
+            best_cost = cost
+            best_path = path.copy()
+            return
+
+        for v, w in graph[u]:
+            if v not in path:   # tránh lặp
+                dfs(v, path + [v], cost + w)
+
+    dfs(start, [start], 0)
+    end_time = time.time()
+    return best_path, best_cost, end_time - start_time
+path, cost, runtime = branch_and_bound('A', 'G')
+
+print("Đường đi:", " -> ".join(path))
+print("Chi phí:", cost)
+print("Thời gian chạy:", runtime, "giây")
