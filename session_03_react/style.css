@@ -1,0 +1,35 @@
+body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 20px; }
+.container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+h1 { text-align: center; color: #333; }
+
+/* Khu vực thống kê */
+.summary { display: flex; justify-content: space-between; background: #e9ecef; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+.summary div { font-weight: bold; }
+
+/* Nút bấm */
+button { cursor: pointer; padding: 8px 15px; border: none; border-radius: 4px; color: white; font-size: 14px;}
+.btn-add { background-color: #28a745; margin-bottom: 20px; }
+.btn-edit { background-color: #ffc107; color: #000; }
+.btn-delete { background-color: #dc3545; }
+.btn-close { background-color: #6c757d; }
+
+/* Danh sách công việc */
+.task-list { display: flex; flex-direction: column; gap: 10px; }
+.task-card { display: flex; justify-content: space-between; align-items: center; border: 1px solid #ddd; padding: 15px; border-radius: 5px; background: #fff;}
+.task-card.completed { opacity: 0.6; }
+.task-card.completed h3 { text-decoration: line-through; }
+.task-info { flex: 1; }
+.task-info h3 { margin: 0 0 5px 0; }
+.task-info p { margin: 0; color: #666; font-size: 14px; }
+.task-actions { display: flex; gap: 5px; align-items: center; }
+
+/* Popup Form */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
+.modal-content { background: white; padding: 20px; border-radius: 8px; width: 400px; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+.form-group input, .form-group select { width: 100%; padding: 8px; box-sizing: border-box; }
+.error-message { color: red; font-size: 12px; display: none; margin-top: 5px;}
+
+/* Thông báo */
+#notification { display: none; background: #d4edda; color: #155724; padding: 10px; text-align: center; border-radius: 5px; margin-bottom: 15px; }
